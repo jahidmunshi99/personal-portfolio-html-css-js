@@ -158,6 +158,9 @@ h1, h2, h3, h4, h5, h6{
     font-family: var(--logo-font);
     font-weight: bold;
 }
+#navmenu{
+    position: relative;
+}
 #navmenu li{
     padding: 0.9rem 0;
 }
@@ -172,6 +175,24 @@ h1, h2, h3, h4, h5, h6{
 }
 .aside-footer{
     margin-top: 2rem;
+}
+
+/* Humbarger Menu */
+#humbarger{
+    position: absolute;
+    right: 5rem;
+    top: 2.5rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none;
+}
+#humbarger-close i{
+    position: absolute;
+    right: 5rem;
+    top: 2.5rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none;
 }
 /* =========================================== Main-Content Section =========================================== */               
 .main-content{

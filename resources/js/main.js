@@ -1,9 +1,9 @@
 // *************************************************************************
 //                         Toggle Button
 // *************************************************************************
-// const toggleBtn = document.querySelector(".toggle-menu");
-// const mainMenu = document.querySelector(".main-menu");
-// const togleClose = document.querySelector(".close-btn");
+const humbargerBtn = document.querySelector("#humbarger");
+const mainMenu = document.querySelector("#navmenu");
+const humbargerClose = document.querySelector("#humbarger-close");
 // const searchBtn = document.querySelector(".search");
 // const closeBtn = document.querySelector(".close");
 const darkMood = document.querySelector('#dark');
@@ -16,6 +16,15 @@ darkMood.addEventListener('click', ()=>{
 lightMood.addEventListener('click', ()=>{
     lightMood.classList.remove('active');
     darkMood.classList.remove('active')
+})
+humbargerBtn.addEventListener('click', ()=>{
+    mainMenu.classList.add('active');
+    humbargerBtn.classList.add('active');
+})
+humbargerClose.addEventListener('click', ()=>{
+    mainMenu.classList.remove('active');
+    humbargerClose.classList.remove('active');
+    humbargerBtn.classList.remove('active');
 })
 
 
