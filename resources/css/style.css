@@ -18,6 +18,7 @@
 *, ::before, ::after{margin: 0; padding: 0; box-sizing: border-box;}
 :root{
     /* Custom Color */
+    /* Dark Mood */
     --orange-color:#EE5F38;
     --bg-black-color:#212428;
     --text-white-color:#FFFFFF;
@@ -28,12 +29,31 @@
     --green-color:#48CDA0;
     --blue-color:#007EFF;
     --btn-bg-hover-color:#3c3d3e;
+    /* Light Mood */
 
     /* Typography */
     --theme-font: tfont ;
     --logo-font: logofont;
     --theme-medium-font:tmedium;
 }
+
+/* Theme Mood */
+#dark{
+    display: block;
+}
+#dark.active{
+    display: none;
+}
+#moon.active{
+    display: block;
+    color: var(--bg-dark-black);
+}
+#moon{
+    display: none;
+}
+
+
+
 body{
     font-family: var(--theme-font);
     color: var(--text-white-color);
@@ -117,9 +137,11 @@ h1, h2, h3, h4, h5, h6{
     background: var(--orange-color);
     border-radius: 50%;
     cursor: pointer;
+    width: 4.8rem;
+    height: 4.8rem;
+    line-height: 1.7rem;
+    text-align: center;
 }
-
-
 .aside{
     background: var(--bg-dark-black);
     padding: 2.8rem;
@@ -176,6 +198,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .content-item h1{
     font-size: 5.5rem;
+    font-size: clamp(3rem, 4vw, 5.5rem);
     font-family: tmedium;
     font-weight: bold;
     margin: 3rem 0;

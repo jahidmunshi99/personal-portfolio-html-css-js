@@ -1,35 +1,46 @@
 // *************************************************************************
 //                         Toggle Button
 // *************************************************************************
-const toggleBtn = document.querySelector(".toggle-menu");
-const mainMenu = document.querySelector(".main-menu");
-const togleClose = document.querySelector(".close-btn");
-const searchBtn = document.querySelector(".search");
-const closeBtn = document.querySelector(".close");
+// const toggleBtn = document.querySelector(".toggle-menu");
+// const mainMenu = document.querySelector(".main-menu");
+// const togleClose = document.querySelector(".close-btn");
+// const searchBtn = document.querySelector(".search");
+// const closeBtn = document.querySelector(".close");
+const darkMood = document.querySelector('#dark');
+const lightMood = document.querySelector('#moon');
 
-
-
-toggleBtn.addEventListener("click", ()=>{
-    mainMenu.classList.toggle("active");
-    togleClose.classList.toggle("active");
-    toggleBtn.classList.toggle("active")
+darkMood.addEventListener('click', ()=>{
+    lightMood.classList.add('active');
+    darkMood.classList.add('active');
 })
-togleClose.addEventListener("click", ()=>{
-    mainMenu.classList.remove("active");
-    togleClose.classList.remove("active");
-    toggleBtn.classList.remove("active");
+lightMood.addEventListener('click', ()=>{
+    lightMood.classList.remove('active');
+    darkMood.classList.remove('active')
 })
+
+
+
+// toggleBtn.addEventListener("click", ()=>{
+//     mainMenu.classList.toggle("active");
+//     togleClose.classList.toggle("active");
+//     toggleBtn.classList.toggle("active")
+// })
+// togleClose.addEventListener("click", ()=>{
+//     mainMenu.classList.remove("active");
+//     togleClose.classList.remove("active");
+//     toggleBtn.classList.remove("active");
+// })
 
 // Search Bar
-searchBtn.addEventListener("click", ()=>{
-    closeBtn.classList.add("active");
-    searchBtn.classList.add("active");
-})
+// searchBtn.addEventListener("click", ()=>{
+//     closeBtn.classList.add("active");
+//     searchBtn.classList.add("active");
+// })
 
-closeBtn.addEventListener("click", ()=>{
-    closeBtn.classList.remove("active");
-    searchBtn.classList.remove("active");
-})
+// closeBtn.addEventListener("click", ()=>{
+//     closeBtn.classList.remove("active");
+//     searchBtn.classList.remove("active");
+// })
 
 
 
@@ -38,7 +49,7 @@ closeBtn.addEventListener("click", ()=>{
 // *************************************************************************
 
 // Text Typing
-const dynamicText = document.querySelector("h3 span");
+const dynamicText = document.querySelector("#typing-text");
 const words = ["WordPress Developer", "Website Designer", "Website Developer", "Theme Customizer"];
 
 // Variables to track the position and deletion status of the word
