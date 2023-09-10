@@ -63,17 +63,22 @@
 }
 
 /* Small Tablets */
-@media (max-width:991px) {  
-    .content-group {
-        /* flex-direction: column; */
-    }  
+@media (max-width:991px) {   
     .right{
         padding-top: 5rem;
     }
 }
 
 /* Extra Small Devices */
-@media (max-width:767px) {   
+@media (max-width:767px) {  
+    .content-group {
+        flex-direction: column;
+        text-align: center;
+    }  
+    .main-content{
+        background-image: none;
+        background-color: var(--bg-black-color);
+    }
   
 }
    
