@@ -10,6 +10,11 @@
     src: url(../fonts/Roboto-Medium.ttf);
 }
 @font-face {
+    font-family: thavy;
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
     font-family: logofont;
     src: url(../fonts/BeauRivage-Regular.ttf);
 }
@@ -29,12 +34,14 @@
     --green-color:#48CDA0;
     --blue-color:#007EFF;
     --btn-bg-hover-color:#3c3d3e;
+    --progressbar-bg-color:#374151;
     /* Light Mood */
 
     /* Typography */
     --theme-font: tfont ;
     --logo-font: logofont;
     --theme-medium-font:tmedium;
+    --theme-havy:thavy;
 }
 
 /* Theme Mood */
@@ -53,7 +60,6 @@
 }
 
 
-
 body{
     font-family: var(--theme-font);
     color: var(--text-white-color);
@@ -67,12 +73,12 @@ html{
 }
 /* =========================================== Reusable Component =========================================== */                
 .container{
-    /* max-width: 128rem; */
+    width: 100%;
     margin:0 auto;
 }
 ul li{list-style-type: none;} 
 a{text-decoration: none; color: var(--black-color);}
-a:hover{
+ul li a:hover{
     color: var(--orange-color);
     transition: all 0.42s ease;
 }
@@ -87,32 +93,87 @@ img{
 h1, h2, h3, h4, h5, h6{
     font-family: var(--theme-font);
 }
+.active{
+    color: var(--orange-color);
+}
 .btn{
     display: inline-block;
     background: var(--orange-color);
-    padding: 11px 25px;
+    padding: 1.3rem 2.5rem;
     border-radius: 50px;
     cursor: pointer;
     color: var(--black-color);
     border: 2px solid var(--theme-color);
 }
-.btn:hover{
+.btn:hover,
+.btn-2:hover{
     transition: all 0.42s ease;
     background: var(--btn-bg-hover-color);
 }
-/* =========================================== Main Section =========================================== */                
-#main-section{
-    background: url(../css/image/home2-hero-bg-dark.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.btn-2{
+    display: inline-block;
+    background: var(--orange-color);
+    padding: 1.3rem 4.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    color: var(--black-color);
+    border: 2px solid var(--theme-color);
+    font-family: var(--theme-havy);
+    font-size: 2rem;
+}
+.btn-3{
+    display: inline-block;
+    background: var(--orange-color);
+    padding: 0.1rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    color: var(--black-color);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+.section{
     width: 100%;
     height: 100vh; 
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-gap: 0.5rem;
-    /* position: relative; */
+    /* grid-gap: 0.5rem; */
 }
+.section-title{
+    text-align: center;
+    margin-top: 10rem;
+    text-transform: uppercase;
+    font-family: var(--theme-havy);
+    font-weight: 800;
+    font-size: 4rem;
+    position: relative;
+    z-index: 1001;
+}
+.section-title::before{
+    content: 'About Me';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -0.5rem;
+    text-align: center;
+    font-size: 7rem;
+    font-family: var(--theme-havy);
+    font-weight: 700;
+    z-index: -1;
+    text-shadow: 3px 3px 1px #402D2A;
+    color: var(--btn-bg-hover-color);
+    text-transform: uppercase;
+}
+/* =========================================== Main Section =========================================== */    
+.section{
+    background: url(../css/image/home2-hero-bg-dark.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: start;
+
+}  
+
 /* =========================================== Aside Section =========================================== */    
 
 /* Theme Mood */
@@ -149,6 +210,10 @@ h1, h2, h3, h4, h5, h6{
     justify-content: center;
     text-align: left;
     flex-direction: column;
+    width: 32rem;
+    height: 75rem;
+    position: fixed;
+
 }
 .aside .logo{
     margin-bottom: 5rem;
@@ -170,9 +235,7 @@ h1, h2, h3, h4, h5, h6{
 }
 #navmenu i{
     padding-right: 1rem;
-    font-size: 1.6rem;
-
-}
+    font-size: 1.6rem;}
 .aside-footer{
     margin-top: 2rem;
 }
@@ -194,23 +257,32 @@ h1, h2, h3, h4, h5, h6{
     cursor: pointer;
     display: none;
 }
-/* =========================================== Main-Content Section =========================================== */               
-.main-content{
+/* ===========================================       ===========================================
+                                               Home Page 
+   ===========================================       =========================================== */
+/* ============ Main-Content Section ============= */ 
+           
+.hero-content{
     align-items: center;
-    padding: 0% 6%;
-    margin: auto 0;
+    padding: 0% 3%;
+    margin: auto;
+    width: 100%;
+    margin-left: 32rem;
+    /* position: sticky;    */
 }
 
 .content-group{
     display: flex;
     justify-content:start;
     align-items: center;
-    /* background: var(--text-white-color); */
 }
 
-.left{
-    width: 40rem;
-    margin-right: 5rem;
+.content-item .left{
+    /* width: 40rem; */
+    margin-right: 15rem;
+}
+.left img{
+    width: 80%;
 }
 .content-item h3{
     font-style: italic;
@@ -262,8 +334,7 @@ h1, h2, h3, h4, h5, h6{
 .left{
     position: relative;
 }
-.figma,
-.photoshop{
+.transition-icons img{
     width: 6rem;
 }
 .figma{
@@ -275,7 +346,7 @@ h1, h2, h3, h4, h5, h6{
 .photoshop{
     position: absolute;
     top: 25rem;
-    right: 0;
+    right: 10rem;
     animation: img-animation 7s ease-in-out infinite;
 }
 /* Animation */
@@ -319,3 +390,195 @@ h1, h2, h3, h4, h5, h6{
     font-family: var(--theme-medium-font);
     /* line-height: 4rem; */
 }
+
+
+/* ===========================================       ===========================================
+                                               About Page 
+   ===========================================       =========================================== */
+.about-content{
+    background: var(--bg-black-color);
+    align-items: center;
+    padding: 0% 3.5%;
+    margin: auto;
+    width: 100%;
+    margin-left: 32rem;
+}
+.about-content .content-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5rem;
+    margin-top: 10rem;
+}
+.subtitle{
+    color: var(--orange-color);
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+.about-content .content-item h2{
+    font-size: 4rem;
+    font-family: var(--theme-havy);
+    line-height: 5rem;
+    padding: 0;
+    margin:2rem 0 4rem;
+}
+.btn-2{
+    margin: 4rem 0 0;
+}
+/* Right Side */
+.center-text{
+    text-align: center;
+    margin-top: 5rem;
+}
+.center-text h4{
+    font-size: 7rem;
+    font-family: var(--theme-havy);
+    font-weight: 700;
+    z-index: -1;
+    text-shadow: 3px 3px 1px var(--orange-color);
+    color: var(--text-white-color);
+    text-transform: uppercase;
+}
+.center-text p{
+    font-size: 3rem;
+    font-family: var(--theme-medium-font);
+    font-weight: 800;
+    margin-top: 3rem;
+}
+/* Transition Image */
+.transition-bg img{
+    width: 10%;
+}
+/* ------------------------ experience Section ------------------------ */
+
+.resume-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5rem;
+    padding: 5rem 0;
+}
+.resume-item{
+    display: flex;
+    justify-content: space-between;
+    border-left: 1px solid var(--orange-color);
+    padding-top: 5rem;
+
+}
+.resume-item:nth-child(1),
+.resume-item:nth-child(2){
+    padding-top: 0;
+}
+.icon span i{
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--orange-color);
+    color: var(--text-white-color);
+    font-size: 3rem;
+    margin: 0 2rem;
+}
+.resume-content-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.resume-content-title h3{
+    font-size: 2.3rem;
+    font-family: var(--theme-medium-font);
+    margin-right: 2rem;
+}
+.dot-icon span{
+    width: 2rem;
+    height: 2rem;
+    background: var(--orange-color);
+    border-radius: 50%;
+    position: relative;
+    margin-left: -1rem;
+}
+.dot-icon span::after{
+    content: '';
+    width: 1.6rem;
+    height: 1.6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--text-white-color);
+    border-radius: 50%;
+    position: absolute;
+}
+.year{
+    color: var(--orange-color);
+    font-family: var(--theme-medium-font);
+    font-size: 1.7rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+.year span{
+    width: 0.8rem;
+    height: 0.8rem;
+    background: var(--orange-color);
+    margin-right: 1rem;
+}
+
+/* Skill Section */
+.skill-info{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+.skill-completed{
+    width: 30%;
+    position: relative;
+}
+.skill-completed span{
+    padding: 0.1rem 0.8rem;
+    background: var(--orange-color);
+    position: absolute;
+    bottom: 0.5rem;
+    border-radius: 0.3rem;
+    color: var(--text-white-color);
+}
+.skill-bar{
+    width: 100%;
+    height: 1rem;
+    background: var(--progressbar-bg-color);
+    border-radius: 2rem;
+    position: relative;
+    margin-top: 1rem;
+}
+.skill-bar::after{
+    content: '';
+    width: 100%;
+    height: 0.8rem;
+    background: var(--orange-color);
+    border-radius: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border: 0.1rem solid var(--btn-bg-hover-color);
+
+}
+/* All Scores */
+.item:nth-child(1) .skill-bar::after{width: 60%;}
+.item:nth-child(2) .skill-bar::after{width: 100%;}
+.item:nth-child(3) .skill-bar::after{width: 75%;}
+.item:nth-child(4) .skill-bar::after{width: 90%;}
+.item:nth-child(5) .skill-bar::after{width: 90%;}
+.item:nth-child(6) .skill-bar::after{width: 70%;}
+/* Skill Completed Text */
+.item:nth-child(1) .skill-completed{width: 45%;}
+.item:nth-child(2) .skill-completed{width: 10%;}
+.item:nth-child(3) .skill-completed{width: 30%;}
+.item:nth-child(4) .skill-completed{width: 15%;}
+.item:nth-child(5) .skill-completed{width: 15%;}
+.item:nth-child(6) .skill-completed{width: 35%;}
+
+
